@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
   static const String baseUrl =
-      'http://192.168.226.79:8000'; // Ensure this is accessible
+      'http://192.168.100.231:8000'; // Ensure this is accessible
   static const String apiUrl = '$baseUrl/api';
   static const String sanctumUrl = '$baseUrl/sanctum/csrf-cookie';
 

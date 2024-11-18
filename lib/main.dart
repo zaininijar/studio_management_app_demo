@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'Studio Management',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       home: const SplashScreen(),
     );
   }
