@@ -7,14 +7,14 @@ import 'package:studio_management/screens/auth/login_screen.dart';
 import 'package:studio_management/screens/booking_screen.dart';
 import 'package:studio_management/screens/studio_list_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class UserHomeScreen extends StatefulWidget {
+  const UserHomeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _UserHomeScreenState createState() => _UserHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
+class _UserHomeScreenState extends State<UserHomeScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
               ),
               child: const Text(
-                'Menu',
+                'Menu User',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,

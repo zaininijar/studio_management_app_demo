@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:studio_management/providers/auth_provider.dart';
 import 'package:studio_management/screens/auth/register_screen.dart';
 import 'package:studio_management/screens/home_screen.dart';
+import 'package:studio_management/screens/user/user_home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -240,15 +241,41 @@ class _LoginScreenState extends State<LoginScreen> {
               _passwordController.text,
             );
 
+        final role = context.read<AuthProvider>().user?.role;
+
         if (mounted) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (_) => const HomeScreen()),
-          );
+          switch (role) {
+            case 'Owner':
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => const HomeScreen()),
+              );
+              break;
+            case 'Admin':
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => const HomeScreen()),
+              );
+              break;
+            case 'Cashier':
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => const HomeScreen()),
+              );
+              break;
+            case 'User':
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => const UserHomeScreen()),
+              );
+              break;
+            default:
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => const UserHomeScreen()),
+              );
+          }
         }
       } catch (e) {
+        // Tampilkan pesan error jika login gagal
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(e.toString())),
+            const SnackBar(content: Text("Email or password is invalid")),
           );
         }
       }
